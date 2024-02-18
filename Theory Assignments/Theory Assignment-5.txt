@@ -1,0 +1,50 @@
+1)What is the difference between Named Export, Default export and * as export?
+
+	->"Named Export" is used to export  multiple functions,components, variables from same file."Named Export" can be  done in two Ways.
+
+		> 1st Way :Exporting in the line beginning itself 
+
+		->Ex:		export const data_1=[...];
+				export const data_2=[...];
+
+		> 2nd Way : Exporting at the end of code utilities wrapped within "{}" curly braces
+
+		>Ex:		export{data_1,data_2};
+
+
+	->"default Export" is used to export a single component,function,variable.It is usually used to export Functional Component from 
+	   a file using the keyword "default" followed by "export"
+
+		>Ex:		export default RestaurentCards;
+
+	->"*" as export is used to export the entire values in a module with single line of code here we can use Aliasing to name the 		   module;
+		
+		>Ex:export * as myExports from "./myModule";
+
+2)What is the importance of config.js file?
+
+	1) In the context of Development, We use lot of external files or media files like image,video are common to many files
+	  in our project.To avoid using it with long line of code . We use to wrap these utilities within seperate folder as
+	  "config" or "utils".It makes our codebase and project environment more cleaner and ease our process.
+
+3)What are ReactHooks?
+
+	->ReactHooks are utility functions which are used to have states within Functional Components which help us to 
+	  provide State variable and it makes our UI components more dynamic.
+
+4)Why do we need a useState Hook?
+
+
+	->"useState" hook used to provide a state variable in our functional components which can make the variable more dynamic
+	   to make our variable depends on data.Even We can do modification for using "let&var" variable but the UI components are
+	   not rendered.
+	
+	->By using State Variable,When We update it, React re-renders the UI Components.It help us to keep our data layer and UI layer
+	  sync with each other.
+
+	->By Following method , The State Variable is created
+
+		Ex: const {Name,setName} = useState(...);
+
+	->Adding to that, We cannot update State variable as like normal JS variable , we have to use a function which is passed as 
+	  second parameter in the destructured array .Here We used "setName" as that function.

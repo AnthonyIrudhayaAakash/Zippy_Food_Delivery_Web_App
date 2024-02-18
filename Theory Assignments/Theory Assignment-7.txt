@@ -1,0 +1,114 @@
+What are various ways to add images into our App? Explain with code examples?
+
+
+	->Using <img> in HTML 
+		
+		ex: <img src="/path/to/image" alt="image description"></img>
+
+
+	->Using CSS background image
+
+
+		ex: image-container {
+    			background-image: url('path/to/image.jpg');
+    			width: 100px;
+   			height: 100px;
+  		    }
+
+	->Using JavaScript 
+
+
+		ex: const image = document.getElementbyID("img-container");
+
+		   img.src = "/path/to/image";
+		   img.alt = "Description of image"
+		   document.getElementById('image-container').appendChild(img);
+
+
+	->Using JSX 
+
+		ex:import React from 'react';
+
+		function App() {
+  				return (
+    				<div>
+      					<img src="path/to/image.jpg" alt="Description" />
+    				</div>
+  			     );
+			} 
+
+		export default App;
+
+
+ What would happen if we do console.log(useState())?
+
+	->When we log "useState()" hook on console, it log an array with two elements
+
+		->0- element is value of that state Variable
+		->1- a function with following attributes
+
+length
+: 
+1
+name
+: 
+"bound dispatchSetState"
+arguments
+: 
+(...)
+caller
+: 
+(...)
+[[Prototype]]
+: 
+ƒ ()
+[[TargetFunction]]
+: 
+ƒ dispatchSetState(fiber, queue, action)
+[[BoundThis]]
+: 
+null
+[[BoundArgs]]
+: 
+Array(2)
+length
+: 
+2
+
+
+		->but when we try to log it on console within a loop/function/condtional block, the following error may occur 
+			"Rendered more hooks than during the previous render" 
+
+How will useEffect behave if we don't add a dependency array ?
+
+	
+		->useEffect(()=>{})
+
+			->When there is no dependency array included in useEffect() hook , it rendered and execute the callback function f
+			  for each render of the component
+
+		->useEffect(()=>{}, [])
+
+			->When we use an "Empty Dependency Array" as second argument for useEffect() hook , it executes the callback function only during the "initial render of the component"
+
+		->useEffect(()=>{}, [variable..]
+
+			->When we use state variable/variables , functions as second argument within the array of dependencies,it executes the callback function only "When the variables got updated or those events occured or function called.
+
+What is SPA?
+
+		->SPA stands for "Single Page Application"
+		->It is a modern day application in web apps, where the webpages are displayed in a single page dynamically for different pages rather then redirecting to entire new 		          webpage
+		->For Example, when we are navigating through different webpages like home, about, cart instead of routing to different pages from one page to another it routes to 			  different component, and render th component on the same single page
+
+What is difference between Client Side Routing and Server Side Routing?
+
+
+	client-side routing:
+		->Client-side routing is often associated with Single Page Applications (SPAs).
+		->SPAs load a single HTML page initially and dynamically update the content as the user navigates through the application without triggering full page reloads.
+	
+	Server-side Routing:
+
+		->In server-side routing, the server is responsible for interpreting the URL and determining which content to serve based on the requested route.
+		->Each navigation action typically results in a request to the server, which responds with a full HTML page.

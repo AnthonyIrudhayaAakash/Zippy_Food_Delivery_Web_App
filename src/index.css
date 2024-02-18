@@ -1,0 +1,437 @@
+body{
+    background-color: #faf9f9;
+}
+:root{
+    --darkcolor : #281d1d;
+    --graycolor: #ab9e9e;
+}
+#container{
+    display: grid;
+    grid-template-columns: 1fr
+}
+h4{
+    margin: 0;
+}
+.header{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-rows: 150px 1fr;
+    grid-template-columns: 1fr;
+    /* flex-wrap: wrap; */
+    
+}
+.header-container{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links > ul {
+    display:flex;
+    list-style-type: none;
+    padding: 0px 20px;
+    color:var(--darkcolor)
+    
+}
+.navlist > li {
+    
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 750;
+    
+    padding: 15px;
+}
+.searchbar-container{
+    display: flex;
+    
+}
+
+.child-searchbar-div{
+    display: flex;
+    background-color:#cdc1c1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    width: 350px;
+    height: 80px;
+
+}
+.searchinput{
+    border-style: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    width: 300px;
+    height: 75px;
+    padding:15px 20px;
+    background-color: transparent;
+    
+
+}
+.search-btn{
+    border-style: none;
+    background-color: transparent;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+#login-btn{
+    padding: 0 20px;
+    border-style: none;
+    border-radius: 5px;
+    transition: transform 0.5s ease-in-out;
+}
+#login-btn:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.Main-Container{
+    display: flex;
+    justify-content:space-around;
+    margin: 15px 0px;
+    flex-wrap: wrap;
+
+}
+.Bodycontainer{
+    display:grid;
+    /* justify-content: center; */
+    /* place-items: center; */
+    
+    align-items: center;
+
+}
+.Restaurent-Cards{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+   
+    width: 250px;
+   
+    padding: 10px 15px;
+    border-radius:10px;
+    margin:10px;
+    background-color: transparent;
+    color: var(--darkcolor);
+    /* background-color: var(--lightcolor); */
+   
+}
+#restaurent_card_link{
+    text-decoration: none;
+}
+
+h3,p{
+    margin :0;
+}
+/* .Bodycontainer::before{
+    content: 'Top Restaurent Chains in your Location';
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 28px;
+    color: var(--lightcolor);
+} */
+h1{
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 28px;
+    color: var(--darkcolor);
+}
+.rating{
+    display: grid;
+    grid-template-columns: 30px 110px;
+    place-items: bottom;
+    font-weight: 750;
+    
+}
+.card-image{
+    width:275px;
+    height:185px;
+    border-radius: 25px;
+    object-fit: cover;
+    /* box-shadow: 10px 10px 5px lightblue inset; */
+   /* filter:grayscale();
+
+    /* filter:blur(1px);
+    z-index: -1; */
+    transition: transform 0.5s ease;
+}
+.card-image:hover{
+     /* width:225px; */
+    /*border-radius: 20px; */
+    transform: scale(0.95);
+    cursor: pointer;
+}
+.offer-scroller{
+   display: grid;
+   grid-auto-flow: column;
+   grid-auto-columns: 33%;
+   overflow-x: auto;
+   overscroll-behavior-inline: contain;
+}
+.offer-card-container{
+    inline-size: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+.filter-search-body-div{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 100px 1fr;
+}
+.filter-search-div{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.Filter-btn{
+    width:75px;
+    height:50px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    background-color: #cdc1c1;
+    border:0;
+    margin:5px 20px;
+    padding:5px 10px;
+    transition: transform 1s ease, letter-spacing 0.5s ease;
+}
+.Filter-btn:hover{
+    cursor: pointer;
+    transform: rotate(360deg);
+    letter-spacing: 2px;
+    
+}
+#shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+#shimmer-card{
+    width: 250px;
+    height: 200px;
+    padding: 10px 15px;
+    border-radius:10px;
+    margin:10px;
+    animation : shadow 1s infinite;
+    /* background-color: var(--lightcolor); */
+}
+#shimmer-image{
+    width: 250px;
+    height: 120px;
+    background-color:var(--graycolor);
+    border-radius: 5px;
+    animation : shadow 1s infinite;
+}
+#shimmer-name,#shimmer-cuisine, #shimmer-details{
+    width:235px;
+    height: 20px;
+    margin: 5px 0;
+    background-color: var(--graycolor);
+    border-radius: 5px;
+    animation : shadow 1s infinite;
+}
+#shimmer-details{
+    width: 220px;
+    height: 30px;
+    background-color: var(--graycolor);
+}
+/* #food_shimmer_card_container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+} */
+#food_shimmer_card{
+    width:120px;
+    height: 120px;
+    margin:20px;
+   
+    background-color: var(--graycolor);
+    border-radius: 85px;
+    animation : shadow 1s infinite;
+
+}
+.food_caraousal_container{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 30px 1fr;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    /* overflow-x: scroll; */
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 24px;
+    
+}
+.nested_food_container{
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-align: start;
+} 
+.nested_food_container::-webkit-scrollbar{
+    display: none;
+}
+.caraousal_image_div{
+    flex: 0 0 100%;
+   min-width: 0;
+   overflow: hidden;
+} 
+#food_card_links{
+    object-fit: cover;
+}
+.caraousal_header_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+.caraousal_btn_container{
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+   
+
+}
+.prev_btn_carousal, .fwd_btn_carousal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    width:45px;
+    height: 34px;
+    padding: 15px;
+    border: none;
+    border-radius: 60px;
+    margin:5px;
+}
+.prev_btn_carousal:hover , .fwd_btn_carousal:hover{
+    cursor: pointer;
+}
+/* .embla {
+    overflow: hidden;
+}
+.embla__container {
+    display: flex;
+}
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+} */
+  
+.menu-container{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.rest-name,.rest-cuisines, .rest-avgrating, .rest-area-distance{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+}
+.title-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:750px;
+    height: 120px;
+   background-color:#faf9f9;
+    border-radius: 15px;
+}
+.title-section-one,.title-section-two{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    grid-template-rows: 1fr 1fr;
+    height: 70px;
+    margin:10px 15px;
+    padding: 10px 15px;
+}
+.title-section-two{
+    grid-template-rows: 1fr;
+}
+.offer-timing-container{
+    display: flex;
+    justify-content: space-around;
+}
+.time-card, .cost-two-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.menu-filter-btn-div{
+    display: flex;
+    justify-content: center;
+    /* place-content: center; */
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    
+    margin-top:10px;
+    margin-left: 10px;
+    background-color:#faf9f9;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.menu-filter-btn-div:hover{
+    cursor: pointer;
+}
+.RestaurantTimeCost_icon__8UdT4{
+    display: flex;
+    margin: 10px;
+}
+.delivery-time, .cost-two{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 800;
+}
+.gap-column{
+    height: 15px;
+    background-color: #cdc1c1;
+    margin:10px 0;
+}
+.category{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.dish-info-div{
+    display: grid;
+    width: 750px;
+    grid-template-columns: 600px 100px;
+    padding: 15px 10px;
+}
+.name-price-div{
+    display:grid;
+    align-items: center;
+}
+.dish-image-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.dish-name, .dish-price, .dish-description{
+    font-family: 'Poppins', sans-serif;
+
+}
+.dish-image{
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+@keyframes shadow {
+    0%{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    50%{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    100%{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+}
