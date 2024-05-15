@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 
 const useRestaurent = () =>{
-
+    const [title, set_title] = useState([]);
     const [restaurent_data, setrestaurent_data] = useState([]);
     const [food_data, setfood_data] = useState([]);
 
@@ -16,9 +16,11 @@ const useRestaurent = () =>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"); 
         const json = await data.json();
         // console.log("json", json);
+        const {title} = json?.data?.cards?.[1]?.card?.card?.header || {};
         const {restaurants} = json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle || {};
         const {info} = json?.data?.cards?.[0]?.card?.card?.gridElements?.infoWithStyle || {};
         const food_circle_cards = json?.data?.cards || {};
+        set_title(title);
         setfood_caraousal(food_circle_cards);
         setfood_data(info);
         setrestaurent_data(restaurants);

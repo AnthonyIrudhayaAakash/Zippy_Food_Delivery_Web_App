@@ -1,28 +1,48 @@
-import React from "react";
-import ReactDOM from "react-dom/client"
-import Header from "./Components/Header";
-import About from "./Components/About";
-
-import Error from "./Components/Error";
-import Searchbody from "./Components/Searchbody";
-import RestaurentCards from "./Components/RestaurentCards";
+import React, { useContext } from "react";
+import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
-import RestaurentMenu from "./Components/RestaurentMenu";
 import { Suspense, lazy } from "react";
+import Header from "./Components/Header";
+// import About from "./Components/About";
+import Error from "./Components/Error";
+// import Searchbody from "./Components/Searchbody";
+// import RestaurentCards from "./Components/RestaurentCards";
+// import RestaurentMenu from "./Components/RestaurentMenu";
 import Shimmer from "./Components/Shimmer";
+import UserContext from "./configs/UserContext";
+import { useContext } from "react";
+import { useState } from "react";
+import { Provider } from "react-redux";
+import appStore from "./configs/appStore";
+import Cart from "./Components/Cart";
 
+const Search_body = lazy(()=>import("./Components/Searchbody"))
+const About = lazy(()=>import("./Components/About"));
 const Contact_us = lazy(()=>import("./Components/Contact_us"));
+const RestaurentMenu = lazy(()=>import("./Components/RestaurentMenu"));
+
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("container"));
 const MasterLayout = () =>{
+
+    const {isLogin, userName, id, logState} = useContext(UserContext)
+    const [log_Status, set_Log_Status] = useState(isLogin);
+    const [log_State_Display_Name, set_Log_State_Display_Name] = useState(logState);
+    const [user_Name, set_User_Name] = useState(userName);
+    
     return (
         <div className="MasterContainer">
-            <Header/>
-            <Outlet/>
+            <Provider store ={appStore}>
+                <UserContext.Provider value = {{userName:user_Name, set_User_Name,isLogin:log_Status, set_Log_Status, logState:log_State_Display_Name, set_Log_State_Display_Name}}>
+                    <Header/>
+                    <Outlet/> 
+                </UserContext.Provider>
+            </Provider>
         </div>
-    )
+    ); 
+    
 }
 
 const AppRouter = createBrowserRouter([
@@ -32,11 +52,15 @@ const AppRouter = createBrowserRouter([
         children:[
             {
                 path:"/",
-                element:<Searchbody/>
+                element:<Suspense fallback={<Shimmer/>}><Search_body/></Suspense>
             },
             {
                 path:"/about",
-                element: <About/>,
+                element: <Suspense fallback={<Shimmer/>}><About/></Suspense>,
+            },
+            {
+                path:"/cart",
+                element: <Suspense fallback={<Shimmer/>}><Cart/></Suspense>
             },
             {
                 path:"/contact",
@@ -44,7 +68,7 @@ const AppRouter = createBrowserRouter([
             },
             {
                 path:"/restaurentmenu/:resid",
-                element: <RestaurentMenu/>
+                element: <Suspense fallback={<Shimmer/>}><RestaurentMenu/></Suspense>
             }
         ],
         errorElement: <Error/>

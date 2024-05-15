@@ -1,5 +1,5 @@
 import React from "react";
-
+import UserData from "../configs/UserContext";
 class User extends React.Component{
 
     constructor(props){
@@ -40,7 +40,6 @@ class User extends React.Component{
             <div className="usercard">
                 <h1>{name}</h1>
                 <h2>{id}</h2>
-               
             </div>
         )
     }

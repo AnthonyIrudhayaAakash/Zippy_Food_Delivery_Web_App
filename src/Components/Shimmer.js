@@ -20,28 +20,29 @@ const Shimmer = ({duration=3000}) => {
     
     for(let i=0; i<10;i++){
         shimmer_elements.push(
-            <div id="shimmer-card" key={i}>
+            <div className="shimmer-card flex flex-wrap w-72 h-48 px-3 my-4 animate-pulse" key={i}>
 
-                <div id="shimmer-image">
-
-                </div>
-                <div id="shimmer-name">
+                <div className="shimmer-image w-64 h-32 m-2 bg-gray-300">
 
                 </div>
-                <div id="shimmer-cuisine">
+                <div className="shimmer-name w-60 h-5 m-1 bg-gray-300">
 
                 </div>
-                <div id="shimmer-details">
+                <div className="shimmer-cuisine w-32 h-5 m-1 bg-gray-300">
+
+                </div>
+                <div className="shimmer-details w-24 h-5 m-1 bg-gray-300">
 
                 </div>
 
             </div>
         )
+        console.log("im shimmer")
     }
     
 
     return showShimmer ? (
-        <div id="shimmer-container">
+        <div className="shimmer-container flex justify-between flex-wrap">
             {shimmer_elements}
 
         </div>

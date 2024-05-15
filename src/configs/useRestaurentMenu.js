@@ -20,7 +20,7 @@ const useRestaurentMenu =  ( resid ) =>{
         setres_menu(res_menu_data.data);
     }
 
-   
+   console.log("resss__menu", res_menu?.cards)
 
     return res_menu;
 
